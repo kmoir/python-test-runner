@@ -17,6 +17,8 @@ RUN apt-get -q update \
     curl \
     wget \
     software-properties-common \
+    clamav \
+    clamav-freshclam \
     && apt-get clean
 
 RUN add-apt-repository --yes ppa:fkrull/deadsnakes
@@ -24,6 +26,7 @@ RUN apt-get -q update \
     && apt-get install --yes -q \
     python2.6 \
     python2.6-dev \
+    freshclam --verbose
     && apt-get clean
 
 # Ubuntu's virtualenv.py uses same new-style formatting that Python 2.6 doesn't support.
